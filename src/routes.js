@@ -1,14 +1,14 @@
 import React from "react"
-import { Switch, Route } from "react-router-dom"
+import { Routes, Route } from "react-router-dom"
 
 import Home from "./pages/Home"
 import Reservas from "./pages/Reservas"
 
-export default function Routes() {
+export default function RoutesApp() {
     return (
-        <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/reservas" exact component={Reservas} />
-        </Switch>
+        <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/reservas" element={<Reservas />} />
+        </Routes>
     )
 }
