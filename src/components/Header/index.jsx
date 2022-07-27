@@ -1,4 +1,5 @@
 import React from "react"
+import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 import "./style.css"
 import { Container } from "@material-ui/core"
@@ -6,8 +7,17 @@ import { Container } from "@material-ui/core"
 import logo from "../../assets/logo.svg"
 
 export default function Header() {
+    // === HOOKS ===
+    const reservesSize = useSelector((state) => state.reserves.length)
+
     return (
-        <Container>
+        <Container
+            maxWidth={false}
+            style={{
+                padding: "0",
+                marginBottom: "10rem",
+            }}
+        >
             <header className="container">
                 <Link to="/">
                     <img alt="logo" className="logo" src={logo} />
@@ -16,7 +26,14 @@ export default function Header() {
                 <Link to="/reservas" style={{ textDecoration: "none" }}>
                     <div className="reservas">
                         <strong>Minhas reservas</strong>
-                        <span>0 reservas</span>
+                        {reservesSize > 0 && (
+                            <span>
+                                {reservesSize}
+                                {` ${
+                                    reservesSize > 1 ? "reservas" : "reserva"
+                                }`}
+                            </span>
+                        )}
                     </div>
                 </Link>
             </header>
