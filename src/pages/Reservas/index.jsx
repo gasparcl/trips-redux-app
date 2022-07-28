@@ -1,15 +1,23 @@
 import React from "react"
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 
 import { Link } from "react-router-dom"
 import { Typography, Container } from "@material-ui/core"
 import { MdDelete } from "react-icons/md"
 import "./style.css"
 
+import { deleteReserve } from "../../store/modules/reserves/actions"
+
 export default function Reservas() {
     // === HOOKS ===
     const reserves = useSelector((state) => state.reserves)
     const reservesSize = useSelector((state) => state.reserves.length)
+    const dispatch = useDispatch()
+
+    // === HANDLERS ===
+    function handleDelete(id) {
+        dispatch(deleteReserve(id))
+    }
 
     return (
         <>
@@ -25,7 +33,7 @@ export default function Reservas() {
                             Você ainda não tem reservas
                         </Typography>
                         <Link to="/" style={{ textDecoration: "none" }}>
-                            <Typography variant="h5">Voltar</Typography>
+                            <Typography variant="h6">Voltar</Typography>
                         </Link>
                     </>
                 )}
@@ -36,8 +44,11 @@ export default function Reservas() {
                             <li className="reservas-page" key={reserve.id}>
                                 <img src={reserve.image} alt={reserve.title} />
                                 <strong>{reserve.title}</strong>
-                                <span>Quantidade: 2</span>
-                                <button type="button" onClick={() => {}}>
+                                <span>Quantidade: {reserve.amount}</span>
+                                <button
+                                    type="button"
+                                    onClick={() => handleDelete(reserve.id)}
+                                >
                                     <MdDelete size={20} color="#191919" />
                                 </button>
                             </li>

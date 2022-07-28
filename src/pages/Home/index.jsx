@@ -6,6 +6,8 @@ import api from "../../services/api"
 import { Button, Container, ListItem, Typography } from "@material-ui/core"
 import { StyledList } from "./styles"
 
+import { addReserve } from "../../store/modules/reserves/actions"
+
 export default function Home() {
     // === HOOKS ===
     const dispatch = useDispatch()
@@ -22,10 +24,7 @@ export default function Home() {
 
     // === HANDLERS ===
     function handleAdd(trip) {
-        dispatch({
-            type: "ADD_RESERVE",
-            trip,
-        })
+        dispatch(addReserve(trip))
     }
 
     return (
