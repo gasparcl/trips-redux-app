@@ -14,6 +14,7 @@ export default function reserves(state = [], action) {
                     ? draft[tripIndex].amount++
                     : draft.push({ ...action.trip, amount: 1 })
             })
+
         case "DELETE_RESERVE":
             return produce(state, (draft) => {
                 const tripIndex = draft.findIndex(
@@ -24,6 +25,19 @@ export default function reserves(state = [], action) {
                     ? draft.splice(tripIndex, 1)
                     : draft[tripIndex].amount--
             })
+
+        case "UPDATE_RESERVE":
+            if (action.amount <= 0) return state
+
+            return produce(state, (draft) => {
+                const tripIndex = draft.findIndex(
+                    (trip) => trip.id === action.id,
+                )
+
+                if (tripIndex >= 0)
+                    draft[tripIndex].amount = Number(action.amount)
+            })
+
         default:
             return state
     }
