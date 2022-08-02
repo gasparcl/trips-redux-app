@@ -11,26 +11,56 @@
     {
       "id": 22,
       "amount": 3
+    },
+    {
+      "id": 23,
+      "amount": 25
+    },
+    {
+      "id": 24,
+      "amount": 30
+    },
+    {
+      "id": 25,
+      "amount": 14
     }
   ],
   "trips": [
     {
       "id": 1,
-      "title": "Viagem Maceió 7 noites",
+      "title": "Maceió 7 noites",
       "status": true,
       "image": "https://sujeitoprogramador.com/wp-content/uploads/2019/12/maceio.jpg"
     },
     {
       "id": 4,
-      "title": "Viagem Caribe 5 noites",
+      "title": "Caribe 5 noites",
       "status": true,
       "image": "https://sujeitoprogramador.com/wp-content/uploads/2019/12/caribe.jpg"
     },
     {
       "id": 22,
-      "title": "Viagem Fernando de Noronha 10 noites",
+      "title": "Fernando de Noronha 10 noites",
       "status": true,
       "image": "https://sujeitoprogramador.com/wp-content/uploads/2019/12/fernand-noronha.jpg"
+    },
+    {
+      "id": 23,
+      "title": "Belo Horizonte 4 noites",
+      "status": true,
+      "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/30/76/83/praca-da-liberdade.jpg?w=500&h=-1&s=1"
+    },
+    {
+      "id": 24,
+      "title": "Porto de Galinhas 12 noites",
+      "status": true,
+      "image": "https://media-cdn.tripadvisor.com/media/photo-s/15/dc/79/27/piscinas-naturais-de.jpg"
+    },
+    {
+      "id": 25,
+      "title": "Natal 7 noites",
+      "status": true,
+      "image": "https://viagemeturismo.abril.com.br/wp-content/uploads/2016/10/114-e1482426803153.jpeg?quality=70&strip=info&w=919&w=636"
     }
   ]
 }

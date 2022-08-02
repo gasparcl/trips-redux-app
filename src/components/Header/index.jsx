@@ -15,7 +15,7 @@ export default function Header() {
             maxWidth={false}
             style={{
                 padding: "0",
-                marginBottom: "10rem",
+                marginBottom: "6rem"
             }}
         >
             <header className="container">

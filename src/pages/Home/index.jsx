@@ -3,10 +3,10 @@ import { useDispatch } from "react-redux"
 
 import { MdFlightTakeoff } from "react-icons/md"
 import api from "../../services/api"
-import { Button, Container, ListItem, Typography } from "@material-ui/core"
+import { Button, Container, Grid, Typography } from "@material-ui/core"
 import { StyledList } from "./styles"
 
-import { addReserve } from "../../store/modules/reserves/actions"
+import { addReserveRequest } from "../../store/modules/reserves/actions"
 
 export default function Home() {
     // === HOOKS ===
@@ -23,16 +23,22 @@ export default function Home() {
     }, [])
 
     // === HANDLERS ===
-    function handleAdd(trip) {
-        dispatch(addReserve(trip))
+    function handleAdd(id) {
+        dispatch(addReserveRequest(id))
     }
 
     return (
         <>
-            <Container style={{ padding: "0" }}>
-                <StyledList>
+            <Container>
+                <StyledList container spacing={2}>
                     {trips.map((trip) => (
-                        <ListItem className="lista" key={trip.id}>
+                        <Grid
+                            item
+                            sm={4}
+                            xs="auto"
+                            className="lista"
+                            key={trip.id}
+                        >
                             <div className="card">
                                 <img
                                     className="trip-img"
@@ -51,7 +57,7 @@ export default function Home() {
                                 <Button
                                     variant="contained"
                                     color="primary"
-                                    onClick={() => handleAdd(trip)}
+                                    onClick={() => handleAdd(trip.id)}
                                     className="mt-2"
                                     startIcon={
                                         <MdFlightTakeoff
@@ -63,7 +69,7 @@ export default function Home() {
                                     Reservar!
                                 </Button>
                             </div>
-                        </ListItem>
+                        </Grid>
                     ))}
                 </StyledList>
             </Container>

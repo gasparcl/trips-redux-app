@@ -1,6 +1,10 @@
+ul {
+    padding: 2rem
+}
+
 .reservas-page {
-    padding: 20px;
-    margin-bottom: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
     background: #FFF;
     border-radius: 4px;
     display: flex;
@@ -10,10 +14,16 @@
 
 .reservas-page img {
     height: 100px;
+    width: 161px;
 }
 
 .reservas-page button {
     border: 0;
+}
+
+.reservas-buttons {
+    display: inline-flex;
+    align-items: center;
 }
 
 div button {
@@ -22,6 +32,5 @@ div button {
     padding: 10px;
     text-transform: uppercase;
     border-radius: 4px;
-    margin-top: 10px;
     font-weight: bold;
 }

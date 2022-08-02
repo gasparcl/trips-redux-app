@@ -1,19 +1,17 @@
 import styled from "styled-components"
-import { List } from "@material-ui/core"
+import { Grid } from "@material-ui/core"
 
-export const StyledList = styled(List)`
+export const StyledList = styled(Grid)`
     border-radius: 1rem;
-    display: flex;
-    flex-direction: row;
     & .lista {
-        display: flex;
-        flex-direction: column;
         text-align: center;
     }
     .trip-img {
         border-radius: 1rem;
         max-height: 220px;
         margin-bottom: 1rem;
+        width: 100%;
+        min-height: 220px;
     }
     .card {
         background: #ececec;
