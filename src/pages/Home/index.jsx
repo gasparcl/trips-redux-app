@@ -31,7 +31,7 @@ export default function Home() {
         <>
             <Container>
                 <StyledList container spacing={2}>
-                    {trips.map((trip) => (
+                    {(trips || []).map((trip) => (
                         <Grid
                             item
                             sm={4}

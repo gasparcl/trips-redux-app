@@ -11,7 +11,7 @@ export default function reserves(state = [], action) {
                 )
 
                 tripIndex >= 0
-                    ? draft[tripIndex].amount++
+                    ? (draft[tripIndex].amount += 1)
                     : draft.push({ ...action.trip, amount: 1 })
             })
 

@@ -50,7 +50,7 @@ export default function Reservas() {
                 </>
             )}
             <ul>
-                {reserves.map((reserve) => (
+                {(reserves || []).map((reserve) => (
                     <li className="reservas-page" key={reserve.id}>
                         <img src={reserve.image} alt={reserve.title} />
                         <strong>{reserve.title}</strong>
