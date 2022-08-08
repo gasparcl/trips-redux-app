@@ -2,17 +2,11 @@ import produce from "immer"
 
 export default function reserves(state = [], action) {
     switch (action.type) {
-        case "ADD_RESERVE_SUCESS":
+        case "ADD_RESERVE_SUCCESS":
             // o spread de state (...state) apenas copia tudo que tem dentro
             //da array de state e adiciona à array o segundo parametro(action.trip)
             return produce(state, (draft) => {
-                const tripIndex = draft.findIndex(
-                    (trip) => trip.id === action.trip.id
-                )
-
-                tripIndex >= 0
-                    ? (draft[tripIndex].amount += 1)
-                    : draft.push({ ...action.trip, amount: 1 })
+                draft.push(action.trip)
             })
 
         case "DELETE_RESERVE":

@@ -8,8 +8,7 @@ import "./style.css"
 
 import {
     deleteReserve,
-    updateReserve,
-    updateReserveAmount
+    updateReserveAmountRequest
 } from "../../store/modules/reserves/actions"
 import { StyledButton } from "./styles"
 
@@ -25,11 +24,11 @@ export default function Reservas() {
     }
 
     function decrementAmount(trip) {
-        dispatch(updateReserveAmount(trip.id, trip.amount - 1))
+        dispatch(updateReserveAmountRequest(trip.id, trip.amount - 1))
     }
 
     function incrementAmount(trip) {
-        dispatch(updateReserveAmount(trip.id, trip.amount + 1))
+        dispatch(updateReserveAmountRequest(trip.id, trip.amount + 1))
     }
 
     return (
