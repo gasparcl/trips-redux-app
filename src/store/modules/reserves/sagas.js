@@ -7,13 +7,9 @@ function* addToReserve({ id }) {
     const tripExists = yield select((state) =>
         state.reserves.find((trip) => trip.id === id)
     )
-
-    const tripsStock = yield call(api.get, `/stock/${id}`) // response
-
-    const stockAmount = tripsStock.data.amount
-
+    const myStock = yield call(api.get, `/stock/${id}`) // response
+    const stockAmount = myStock.data.amount
     const currentStock = tripExists ? tripExists.amount : 0
-
     const amount = currentStock + 1
 
     if (amount > stockAmount) {
@@ -29,12 +25,22 @@ function* addToReserve({ id }) {
             ...response.data,
             amount: 1
         }
-
         yield put(addReserveSuccess(data))
     }
 }
 
-function* updateAmount({ id, amount }) {}
+function* updateAmount({ id, amount }) {
+    if (amount <= 0) return
+
+    const myStock = yield call(api.get, `/stock/${id}`)
+    const stockAmount = myStock.data.amount
+
+    if (amount > stockAmount) {
+        alert("Não há mais reservas disponíveis")
+        return
+    }
+    yield put(updateReserveAmountSuccess(id, amount))
+}
 
 export default all([
     takeLatest("ADD_RESERVE_REQUEST", addToReserve),

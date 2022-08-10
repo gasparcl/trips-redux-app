@@ -2,7 +2,7 @@
   "stock": [
     {
       "id": 1,
-      "amount": 10
+      "amount": 5
     },
     {
       "id": 4,
@@ -14,15 +14,15 @@
     },
     {
       "id": 23,
-      "amount": 25
+      "amount": 5
     },
     {
       "id": 24,
-      "amount": 30
+      "amount": 6
     },
     {
       "id": 25,
-      "amount": 14
+      "amount": 7
     }
   ],
   "trips": [

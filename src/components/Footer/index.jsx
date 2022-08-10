@@ -9,8 +9,8 @@ export default function Footer() {
             maxWidth={false}
             style={{
                 padding: "0",
-                marginTop: "10rem",
-                position: "absolute",
+                marginTop: "6rem",
+                bottom: 0
             }}
         >
             <footer className="container">

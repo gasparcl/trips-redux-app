@@ -1,24 +1,21 @@
 import styled from "styled-components"
 import { Grid } from "@material-ui/core"
 
-export const StyledList = styled(Grid)`
+export const StyledGrid = styled(Grid)`
     border-radius: 1rem;
+    min-height: 70vh;
     & .lista {
         text-align: center;
     }
     .trip-img {
-        border-radius: 1rem;
-        max-height: 220px;
-        margin-bottom: 1rem;
-        width: 100%;
-        min-height: 220px;
-    }
-    .card {
-        background: #ececec;
-        border-radius: 1rem;
+        height: 150px;
         padding: 1rem;
     }
-    .mt-2 {
-        margin-top: 1rem;
+    .card {
+        border-radius: 1rem;
+        max-width: 100%;
+    }
+    .MuiCardActions-root {
+        justify-content: center;
     }
 `

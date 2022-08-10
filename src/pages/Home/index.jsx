@@ -1,12 +1,23 @@
 import React, { useState, useEffect } from "react"
 import { useDispatch } from "react-redux"
-
-import { MdFlightTakeoff } from "react-icons/md"
-import api from "../../services/api"
-import { Button, Container, Grid, Typography } from "@material-ui/core"
-import { StyledList } from "./styles"
-
 import { addReserveRequest } from "../../store/modules/reserves/actions"
+
+import api from "../../services/api"
+
+import PageTransition from "../../components/PageTransition"
+import {
+    Button,
+    Card,
+    CardActionArea,
+    CardActions,
+    CardContent,
+    CardMedia,
+    Grid,
+    Typography
+} from "@material-ui/core"
+import { StyledGrid } from "./styles"
+import { StyledContainer } from "../styles"
+import { MdFlightTakeoff } from "react-icons/md"
 
 export default function Home() {
     // === HOOKS ===
@@ -28,51 +39,57 @@ export default function Home() {
     }
 
     return (
-        <>
-            <Container>
-                <StyledList container spacing={2}>
+        <PageTransition>
+            <StyledContainer>
+                <StyledGrid container spacing={2}>
                     {(trips || []).map((trip) => (
                         <Grid
                             item
                             sm={4}
-                            xs="auto"
+                            xs={12}
                             className="lista"
                             key={trip.id}
                         >
-                            <div className="card">
-                                <img
-                                    className="trip-img"
-                                    src={trip.image}
-                                    alt={trip.title}
-                                />
-                                <Typography variant="h6">
-                                    {trip.title}
-                                </Typography>
-                                <Typography variant="body2">
-                                    Status:{" "}
-                                    {trip.status
-                                        ? "Disponível"
-                                        : "Indisponível"}
-                                </Typography>
-                                <Button
-                                    variant="contained"
-                                    color="primary"
-                                    onClick={() => handleAdd(trip.id)}
-                                    className="mt-2"
-                                    startIcon={
-                                        <MdFlightTakeoff
-                                            size={18}
-                                            color="fff"
-                                        />
-                                    }
-                                >
-                                    Reservar!
-                                </Button>
-                            </div>
+                            <Card className="card">
+                                <CardActionArea>
+                                    <CardMedia
+                                        className="trip-img"
+                                        image={trip.image}
+                                        title={trip.title}
+                                    />
+                                    <CardContent>
+                                        <Typography variant="body1">
+                                            {trip.title}
+                                        </Typography>
+                                        <Typography variant="caption">
+                                            Status:{" "}
+                                            {trip.status
+                                                ? "Disponível"
+                                                : "Indisponível"}
+                                        </Typography>
+                                    </CardContent>
+                                </CardActionArea>
+                                <CardActions>
+                                    <Button
+                                        variant="outlined"
+                                        color="primary"
+                                        onClick={() => handleAdd(trip.id)}
+                                        className="mt-2"
+                                        startIcon={
+                                            <MdFlightTakeoff
+                                                size={18}
+                                                color="#3F51B5"
+                                            />
+                                        }
+                                    >
+                                        Reservar!
+                                    </Button>
+                                </CardActions>
+                            </Card>
                         </Grid>
                     ))}
-                </StyledList>
-            </Container>
-        </>
+                </StyledGrid>
+            </StyledContainer>
+        </PageTransition>
     )
 }
