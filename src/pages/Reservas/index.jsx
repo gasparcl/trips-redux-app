@@ -97,7 +97,6 @@ export default function Reservas() {
                                         onConfirm={() =>
                                             handleDelete(reserve.id)
                                         }
-                                        data={reserve.id}
                                     />
                                 </div>
                             </li>

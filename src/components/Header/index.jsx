@@ -5,7 +5,6 @@ import "./style.css"
 import { Container } from "@material-ui/core"
 
 import logo from "../../assets/logo.svg"
-import { StyledContainer } from "../../pages/styles"
 
 export default function Header() {
     // === HOOKS ===
